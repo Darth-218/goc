@@ -19,13 +19,13 @@ func goc() {
 
   for status != -1 {
     line, err := reader.ReadString('\n')
-    if err ==  {return}
-    if err != nil {
-      fmt.Println("Unable to read line")
+    if err == nil {
+      line = strings.TrimSuffix(line, "\n")
+      fmt.Println(line)
+    } else {
+      fmt.Println(err)
       continue
     }
-    line = strings.TrimSuffix(line, "\n")
-    fmt.Println(line)
   }
   os.Remove("./history.c")
   os.Remove("./current.c")
